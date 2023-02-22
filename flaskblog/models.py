@@ -1,6 +1,7 @@
 from datetime import datetime 
 from itsdangerous import TimedSerializer as Serializer
-from flaskblog import db, login_manager, app
+from flaskblog import db, login_manager
+from flask import current_app
 from flask_login import UserMixin, AnonymousUserMixin
 
 @login_manager.user_loader
@@ -18,12 +19,12 @@ class User(db.Model, UserMixin, AnonymousUserMixin):
     votes = db.relationship('Votes', backref='voter', lazy=True)
 
     def get_reset_token(self):
-        s = Serializer(app.config['SECRET_KEY'])
+        s = Serializer(current_app.config['SECRET_KEY'])
         return s.dumps({'user_id': self.id})
     
     @staticmethod
     def verify_reset_token(token, expires_sec=1800):
-        s = Serializer(app.config['SECRET_KEY'])
+        s = Serializer(current_app.config['SECRET_KEY'])
         try:
             user_id = s.loads(token, max_age=expires_sec)['user_id']
         except:
