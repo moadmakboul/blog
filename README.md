@@ -7,7 +7,7 @@
 
 ## Description
 
-This repository contains a Blog application. different users can create an account, add a profile picture, update their information, create some posts and vote by like or dislike.
+This repository contains a Blog application. Different users can create an account, add a profile picture, update their information, create some posts and vote by like or dislike.
 
 The posts could be either updated or deleted only by the posted user. 
 
