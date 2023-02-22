@@ -11,7 +11,7 @@ This repository contains a Blog application. Different users can create an accou
 
 The posts could be either updated or deleted only by the posted user. 
 
-To like or dislike a post, the user should login first. In case the user are logout, he will be redirected to the login page. After the user successfully logged, he will redirected to the previous url where he needed to be logged.
+To like or dislike a post, the user should login first. In case the user are logout, he will be redirected to the login page. After the user successfully logged, he will be redirected to the previous url where he needed to be logged.
 
 In case the user has forgot his password, he can reset the password by email and follow the link which has been sent to his email address so he can add a new password.
 
