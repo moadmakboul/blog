@@ -9,7 +9,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . /app
 
-ENTRYPOINT [ "python" ]
-
-CMD ["run.py"]
+CMD ["gunicorn", "--bind=0.0.0.0:5000", "run:app"]
 
