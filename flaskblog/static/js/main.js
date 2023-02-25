@@ -27,63 +27,76 @@ $(document).ready(function(){
         }
       }
     })
-    
+  })
+
+  $(document).ready(function(){
     $(".btn_like").click(function(e){
-    e.preventDefault();
+      e.preventDefault();
+  
+      var id = this.id;
+      var split_id = id.split("_")
+      var post_id = split_id[1]
+      
+      $.ajax({
+        type: 'POST',
+        url: '/vote/like',
+        data: {
+          post_id: post_id
+        },
+        success: function(data){
+          var likes = data['likes']
+          var dislikes = data['dislikes']
 
-    var id = this.id;
-    var split_id = id.split("_")
-    var post_id = split_id[1]
-    
-    $.ajax({
-      type: 'POST',
-      url: '/vote/like',
-      data: {
-        post_id: post_id
-      },
-      success: function(data){
-        var likes = data['likes']
-        var dislikes = data['dislikes']
+          $("#likes_"+post_id).text(likes[0][post_id])
 
-        $("#likes_"+post_id).text(likes[0][post_id])
-        $("#dislikes_"+post_id).text(dislikes[0][post_id])
-
-        if (likes[1][post_id]){
-          $("#green_"+post_id).css("color","#5f788a")
-          $("#red_"+post_id).css("color","#AAA")
-        }else{
-          $("#green_"+post_id).css("color","#AAA")
+          if (dislikes[0][post_id]){
+            $("#dislikes_"+post_id).text(dislikes[0][post_id])
+          }else{
+            $("#dislikes_"+post_id).text(0)
+          }
+  
+          if (likes[1][post_id]){
+            $("#green_"+post_id).css("color","#5f788a")
+            $("#red_"+post_id).css("color","#AAA")
+          }else{
+            $("#green_"+post_id).css("color","#AAA")
+          }
         }
-      }
-    })
+      })
+  })})
 
+  $(document).ready(function(){
     $(".btn_dislike").click(function(e){
-    e.preventDefault();
-
-    var id = this.id;
-    var split_id = id.split("_")
-    var post_id = split_id[1]
-    
-    $.ajax({
-      type: 'POST',
-      url: '/vote/dislike',
-      data: {
-        post_id: post_id
-      },
-      success: function(data){
-        var likes = data['likes']
-        var dislikes = data['dislikes']
-        
-        $("#likes_"+post_id).text(likes[0][post_id])
-        $("#dislikes_"+post_id).text(dislikes[0][post_id])
-
-        if (dislikes[1][post_id]){
-          $("#red_"+post_id).css("color","#5f788a")
-          $("#green_"+post_id).css("color","#AAA")
-        }else{
-          $("#red_"+post_id).css("color","#AAA")
+      e.preventDefault();
+  
+      var id = this.id;
+      var split_id = id.split("_")
+      var post_id = split_id[1]
+      
+      $.ajax({
+        type: 'POST',
+        url: '/vote/dislike',
+        data: {
+          post_id: post_id
+        },
+        success: function(data){
+          var likes = data['likes']
+          var dislikes = data['dislikes']
+          
+          $("#dislikes_"+post_id).text(dislikes[0][post_id])
+          
+          if (likes[0][post_id]){
+          }else{
+            $("#likes_"+post_id).text(0)
+          }
+  
+          if (dislikes[1][post_id]){
+            $("#red_"+post_id).css("color","#5f788a")
+            $("#green_"+post_id).css("color","#AAA")
+          }else{
+            $("#red_"+post_id).css("color","#AAA")
+          }
         }
-      }
+      })
     })
   })
-  })})

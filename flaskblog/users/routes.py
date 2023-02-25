@@ -100,7 +100,7 @@ def vote_dislike():
                 status.like = 0    
         if not status:
             dislike = Votes(post_id=post_id, user_id=current_user.id, like=0, dislike=1)
-            db.session.add(dislike)
+            db.session.add(dislike) 
         db.session.commit()
         likes = get_likes()
         dislikes = get_dislikes()

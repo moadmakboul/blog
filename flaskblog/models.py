@@ -57,7 +57,7 @@ class Votes(db.Model):
     like = db.Column(db.Integer, default=0)
     dislike = db.Column(db.Integer, default=0)
     post_id = db.Column(db.Integer, db.ForeignKey('post.id'), nullable=False)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), unique=True, nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'),  nullable=False)
 
     def __repr__(self) -> str:
         return super().__repr__(f'Post: {self.post_id} {self.like} {self.dislike}')

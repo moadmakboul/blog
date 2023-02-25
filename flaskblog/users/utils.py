@@ -33,9 +33,8 @@ def get_likes():
             likes['button_status'][vote.post_id] = True
     total_votes = Counter(likes['liked_posts'].values())
     return total_votes, likes['button_status']
-    
-    
 
+    
 def get_dislikes():
     dislikes = {
         'disliked_posts': {},
@@ -48,6 +47,7 @@ def get_dislikes():
             dislikes['button_status'][vote.post_id] = True
     total_votes = Counter(dislikes['disliked_posts'].values())
     return total_votes, dislikes['button_status'] 
+
 
 def send_reset_email(user):
     token = user.get_reset_token()
