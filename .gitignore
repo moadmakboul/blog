@@ -1,4 +1,4 @@
 _pycache_/
-flaskblog/__pycache
+flaskblog/__pycache__
 venv/
 .env
