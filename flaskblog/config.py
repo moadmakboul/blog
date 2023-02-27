@@ -1,7 +1,10 @@
 import os
 import urllib.parse 
+from dotenv import load_dotenv
 
-params = urllib.parse.quote_plus("Driver={ODBC Driver 18 for SQL Server};Server=tcp:blog-flask.database.windows.net,1433;Database=flask-blog;Uid=moad;Pwd=postgres23*;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;")
+load_dotenv()
+
+params = urllib.parse.quote_plus(str(os.environ.get('connection_string')))
 
 
 class Config:
