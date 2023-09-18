@@ -3,10 +3,9 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
 from flask_mail import Mail
-from dotenv import load_dotenv
 from flaskblog.config import Config
 
-load_dotenv()
+
 
 db = SQLAlchemy()
 bcrypt = Bcrypt()
