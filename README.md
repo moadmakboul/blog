@@ -2,7 +2,7 @@
 [![Python 3.10](https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue)](https://shields.io/) 
 [![FLASK](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)](https://shields.io/)
 [![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)](https://shields.io/)
-[![SQLite](https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&logo=sqlite&logoColor=white)](https://shields.io/)
+[![Postgres](https://img.shields.io/badge/postgres-07405E?style=for-the-badge&logo=postgres&logoColor=white)](https://shields.io/)
 
 
 ## Description
